@@ -3,16 +3,16 @@ const app = express();
 app.use(express.json());
 const users = [];
 
+
 app.get('/usuarios', (req, res) => {
-    res.send('Ok Get Deu Certo');
-    // res.status(200).json(users);
+
+    res.status(200).json(users);
    });
 
 app.post('/usuarios', (req, res) => {
   users.push(req.body);
-  console.log(users);
   
-  res.send('Ok Post Deu Certo');
+  res.status(201).json(req.body);
   });
 
 app.listen(3000, () => {
