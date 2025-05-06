@@ -117,7 +117,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Repo2024\\ApiDo0\\04a\\generated\\prisma",
+      "value": "C:\\Repo2024\\ApiDo0\\03a\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -131,11 +131,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Repo2024\\ApiDo0\\04a\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Repo2024\\ApiDo0\\03a\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -145,12 +145,11 @@ const config = {
     "db"
   ],
   "activeProvider": "mongodb",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": null
+        "value": "mongodb+srv://gebhsantos:A3YG8lXShNUS7FUw@users.vnnwl.mongodb.net/users?retryWrites=true&w=majority&appName=users"
       }
     }
   },
