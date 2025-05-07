@@ -1,8 +1,8 @@
 import express from 'express';
-import pkg from '@prisma/client';
+// import pkg from '@prisma/client';
 
-const { PrismaClient } = pkg;
-const prisma = new PrismaClient();
+// const { PrismaClient } = pkg;
+// const prisma = new PrismaClient();
 const app = express();
 app.use(express.json());
 const users = [];
