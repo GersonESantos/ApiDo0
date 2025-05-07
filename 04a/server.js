@@ -1,8 +1,4 @@
 import express from 'express';
-// import pkg from '@prisma/client';
-// const {  PrismaClient } = pkg;
-
-// const prisma = new PrismaClient()
 const app = express();
 app.use(express.json());
 const users = [];
@@ -14,12 +10,8 @@ app.get('/usuarios', (req, res) => {
    });
 
 app.post('/usuarios', (req, res) => {
- prisma.user.create({
-    data: {
-      name: req.body.name,
-      email: req.body.email,
-      
-    }})
+  users.push(req.body);
+  
   res.status(201).json(req.body);
   });
 
