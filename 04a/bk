@@ -1,2 +1,0 @@
-DATABASE_URL="mongodb+srv://gebhsantos:A3YG8lXShNUS7FUw@users.vnnwl.mongodb.net/users?retryWrites=true&w=majority&appName=users"
-            #   mongodb+srv://gebhsantos:<db_password>@users.vnnwl.mongodb.net/?retryWrites=true&w=majority&appName=users
