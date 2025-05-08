@@ -1,49 +1,39 @@
-
-import './style.css'
-
+import React, { useEffect, useState } from 'react';
+import './style.css';
 function Home() {
-  const users = [
-    {
-    id: '123456',
-    name: "GersoES",
-    age: 68,
-    email: 'geson@gmail.com'
-    },
-    {
-    id: '123457',
-    name: "Pedro",
-    age: 28,
-    email: 'pedro@gmail.com'
+  const [users, setUsers] = useState([]); // Estado para armazenar os usuários
+
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await fetch('http://localhost:3000/usuarios'); // Faz a requisição para a API
+        const data = await response.json(); // Converte a resposta para JSON
+        setUsers(data); // Atualiza o estado com os dados da API
+      } catch (error) {
+        console.error('Erro ao buscar usuários:', error);
+      }
     }
-            ]
+    fetchUsers();
+  }, []); // Executa apenas uma vez ao montar o componente
+
   return (
-   
-      <div className='container'>
-        <form>
-          <h1>Cadastro De Usuarios</h1>
-          <input placeholder='Nome' name="nome" type='text' />
-          <input placeholder='Idade' name="idade" type='number' />
-          <input placeholder='E-mail' name="email" type='email' />
-          <button type='button'>Cadastrar</button>
-        </form>
-      { users.map( user => (
-        <div key={user.id} className='card'>
-          <div>
-            <p>Nome:  <span>{user.name}</span></p>
-            <p>Idade: <span>{user.age}</span></p>
-            <p>Email: <span>{user.email}</span></p>
-          </div>
-          <button>
-            <img />
-          </button>
-        </div>
-
-      ))}
-
-      </div>
-     
-    
-  )
+    <div>
+      <h1>Lista de Usuários</h1>
+      {users.length > 0 ? (
+        <ul>
+          {users.map(user => (
+            <li key={user.id}>
+              <p><strong>Nome:</strong> {user.name}</p>
+              <p><strong>Idade:</strong> {user.age}</p>
+              <p><strong>Email:</strong> {user.email}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Nenhum usuário encontrado.</p>
+      )}
+    </div>
+  );
 }
 
-export default Home
+export default Home;

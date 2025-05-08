@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 import api from '../../services/api';
-function UserList() {
+function Home() {
   const [users, setUsers] = useState([]); // Estado para armazenar os usuários
 
   useEffect(() => {
@@ -37,4 +37,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+export default Home;
