@@ -1,27 +1,32 @@
-import { useEffect, useState, useCallback } from 'react';
+
+import './style.css'
 
 function Home() {
-  const [users, setUsers] = useState([]);
-
-  const getUsers = useCallback(async () => {
-    const response = await api.get('/usuarios');
-    setUsers(response.data);
-  }, []); // Sem dependências, a função será memorizada
-
-  useEffect(() => {
-    getUsers();
-  }, [getUsers]); // Inclua getUsers como dependência
-
+  const users = [
+    {
+    id: '123456',
+    name: "GersoES",
+    age: 68,
+    email: 'geson@gmail.com'
+    },
+    {
+    id: '123457',
+    name: "Pedro",
+    age: 28,
+    email: 'pedro@gmail.com'
+    }
+            ]
   return (
-    <div className='container'>
-      <form>
-        <h1>Cadastro De Usuarios</h1>
-        <input placeholder='Nome' name="nome" type='text' />
-        <input placeholder='Idade' name="idade" type='number' />
-        <input placeholder='E-mail' name="email" type='email' />
-        <button type='button'>Cadastrar</button>
-      </form>
-      {users.map(user => (
+   
+      <div className='container'>
+        <form>
+          <h1>Cadastro De Usuarios</h1>
+          <input placeholder='Nome' name="nome" type='text' />
+          <input placeholder='Idade' name="idade" type='number' />
+          <input placeholder='E-mail' name="email" type='email' />
+          <button type='button'>Cadastrar</button>
+        </form>
+      { users.map( user => (
         <div key={user.id} className='card'>
           <div>
             <p>Nome:  <span>{user.name}</span></p>
@@ -32,9 +37,13 @@ function Home() {
             <img />
           </button>
         </div>
+
       ))}
-    </div>
-  );
+
+      </div>
+     
+    
+  )
 }
 
-export default Home;
+export default Home
