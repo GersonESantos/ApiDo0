@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
+
 function Home() {
   const [users, setUsers] = useState([]); // Estado para armazenar os usuários
 
