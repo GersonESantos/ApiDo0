@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import './style.css';
-import api from '../../services/api';
+
+import './style.css'
 
 function Home() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    async function getUsers() {
-      try {
-        const response = await api.get('/usuarios');
-        setUsers(response.data); // Agora atualiza o estado
-      } catch (error) {
-        console.error('Erro ao buscar usuários:', error);
-      }
+  const users = [
+    {
+    id: '123456',
+    name: "GersoES",
+    age: 68,
+    email: 'geson@gmail.com'
+    },
+    {
+    id: '123457',
+    name: "Pedro",
+    age: 28,
+    email: 'pedro@gmail.com'
     }
-
-    getUsers(); // Chamada dentro do useEffect
-  }, []);
-
+            ]
   return (
-    <div className='container'>
-      <form>
-        <h1>Cadastro De Usuarios</h1>
-        <input placeholder='Nome' name="nome" type='text' />
-        <input placeholder='Idade' name="idade" type='number' />
-        <input placeholder='E-mail' name="email" type='email' />
-        <button type='button'>Cadastrar</button>
-      </form>
-      {users.map(user => (
+   
+      <div className='container'>
+        <form>
+          <h1>Cadastro De Usuarios</h1>
+          <input placeholder='Nome' name="nome" type='text' />
+          <input placeholder='Idade' name="idade" type='number' />
+          <input placeholder='E-mail' name="email" type='email' />
+          <button type='button'>Cadastrar</button>
+        </form>
+      { users.map( user => (
         <div key={user.id} className='card'>
           <div>
             <p>Nome:  <span>{user.name}</span></p>
@@ -38,9 +37,13 @@ function Home() {
             <img />
           </button>
         </div>
+
       ))}
-    </div>
-  );
+
+      </div>
+     
+    
+  )
 }
 
-export default Home;
+export default Home
