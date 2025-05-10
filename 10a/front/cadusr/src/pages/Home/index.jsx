@@ -58,7 +58,7 @@ function Home()
             <p>Email: <span>{user.email}</span></p>
           </div>
           <button onClick={() => deleteUsers(user.id)}>
-            <img />
+            <i>Delete</i>
           </button>
         </div>
       ))}
